@@ -36,37 +36,13 @@
 </head>
 <body>
     <header>
-        <h1>Your Name - Resume</h1>
+        <h1>Elias Farzad - Resume</h1>
     </header>
 
     <div id="pdf-container">
         <canvas id="pdf-viewer"></canvas>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-    <script>
-        const pdfUrl = 'Farzad_Resume3.pdf';
-        const pdfContainer = document.getElementById('pdf-viewer');
-
-        pdfjsLib.getDocument(pdfUrl).promise.then(pdfDoc => {
-            pdfDoc.getPage(1).then(page => {
-                const scale = 1.5;
-                const viewport = page.getViewport({ scale });
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport,
-                };
-
-                page.render(renderContext).promise.then(() => {
-                    pdfContainer.appendChild(canvas);
-                });
-            });
-        });
-    </script>
+    <object data="Farzad_Resume3.pdf" width="1000" height="1000" type='application/pdf'/>
 </body>
 </html>
